@@ -966,6 +966,7 @@ void threeBeeps()              // Used to make a sound when keypad buttons are p
 
 
 
+
 void lcdButtons()// For controlling LCD setup - this mimics pushing the buttons on the LCD button board
 {
     char CodeIn = getChar();  // get another character from serial port
