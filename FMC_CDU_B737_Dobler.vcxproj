@@ -101,6 +101,7 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FMC_B737_aeroSystems737.lua" />
     <None Include="FMC_CDU_B737_Dobler.ino">
       <FileType>CppCode</FileType>
     </None>

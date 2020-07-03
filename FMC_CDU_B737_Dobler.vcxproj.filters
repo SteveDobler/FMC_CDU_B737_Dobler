@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FMC_CDU_B737_Dobler.ino" />
+    <None Include="FMC_B737_aeroSystems737.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.FMC_CDU_B737_Dobler.vsarduino.h">
