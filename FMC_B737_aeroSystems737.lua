@@ -136,6 +136,7 @@
 					io.output(file)
 
 			-- Write the number 10 to the "B737_FMC_Port_Number.txt" file
+			-- The number 10 is just a placeholder for now
 					io.write(port_number)
 			
 			-- Close the "B737_FMC_Port_Number.txt" file
@@ -163,14 +164,20 @@
 			ipc.display("B737_FMC Com Port "..port_number.." Open",5)
                 
 		else
+		-- If it can't open the port (typically because the B737_FMC hardware is not plugged in)
             ipc.display("Could not open ARDUINO Com Port")
             ipc.sleep(2000)
+		
+		-- If it was unable to open the port, it will ask you to enter the number of the port and hit Enter
             port_number = ipc.ask('\n'..'\n'..'\n'..'\n'..'\n'..'\n'..'\n'..'\n'.." Enter the Arduino Com Port for Your B737 FMC Hardware")
-            file = io.open(port_file, "w")
+        
+		-- Opens the file in write mode and writes the port number you just entered ino "B737_FMC_Port_Number.txt" file 
+			file = io.open(port_file, "w")
             io.output(file)
             io.write(port_number)
             io.close(file)
 
+		-- Opens the Com Port
             B737_FMC_Com_Port = com.open("COM"..port_number, speed, handshake)
                 
     if B737_FMC_Com_Port == 0 

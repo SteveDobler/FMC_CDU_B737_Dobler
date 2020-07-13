@@ -555,6 +555,8 @@ void loop() {
             key = key - 1;
             Serial.print("PMDG Left Value:         ");
             Serial.println(PMDG_LEFT[key]);
+
+            Serial.println("");
         }
 
         if (DIP_SW_3 == 0)
@@ -802,7 +804,7 @@ void checkEncoder()
         // If the inputDT state is different than the inputCLK state then 
     // the encoder is rotating counterclockwise
         if (digitalRead(EN_ROTB_Pin) != encoderCurrentStateCLK) {
-            brightness = brightness - 5;
+            brightness = brightness - 10;
             if (brightness < 0)
             {
                 brightness = 0;
@@ -812,7 +814,7 @@ void checkEncoder()
         }
         else {
             // Encoder is rotating clockwise
-            brightness = brightness + 5;
+            brightness = brightness + 10;
             if (brightness > 255)
             {
                 brightness = 255;
@@ -883,7 +885,7 @@ void lcdModeTimeOut()
 
 void keypadClick()              // Used to make a sound when keypad buttons are pressed
 {
-    tone(BUZZER, 750, 30);
+    tone(BUZZER, 300, 75);
 }
 
 void lcdPowerButton()           // Turns ON / OFF the 5" LCD Panel

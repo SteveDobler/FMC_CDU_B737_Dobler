@@ -23,4 +23,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="B737_FMC_Overview.txt" />
+  </ItemGroup>
 </Project>
