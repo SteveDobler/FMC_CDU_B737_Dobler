@@ -92,8 +92,8 @@ const   byte COLS = 9;  // The CDU Keypad has 9 COL Wires
 // CodeIn variable hold the number from the keypad when a button is pressed
 char  CodeIn;
 
-int   OFF = 1;          // For the 5 FMC LEDs
-int   ON = 0;           // For the 5 FMC LEDs 
+int   OFF = 0;          // For the 5 FMC LEDs
+int   ON = 1;           // For the 5 FMC LEDs 
 
 int Encoder_Switch_State;
 
@@ -246,19 +246,19 @@ String PMDG_LEFT[] = {
                       |         |          |           |         |        |        |        |        |
          Switch-> [ SW01  ] [ SW09   ] [  SW17  ] [  SW25   ] [ SW33 ] [ SW41 ] [ SW49 ] [ SW57 ] [ SW65 ]
     ROW1 Name  -> [ LSK-1 ] [ RSK-3  ] [   DES  ] [   FIX   ] [   F  ] [  N   ] [  V   ] [ CLR  ] [   5  ]  Row 0  */
-                   "70166",  "70174",   "70181",   "70190",    "70210", "70218", "70226", "70234", "70197", // Populate Array Row 1
+                   "70166",  "70174",   "70182",   "70190",    "70210", "70218", "70226", "70234", "70197", // Populate Array Row 1
 
     /*   Switch-> [ SW02  ] [ SW10   ] [  SW18  ] [  SW26   ] [ SW34 ] [ SW42 ] [ SW50 ] [ SW58 ] [ SW66 ]
     ROW2 Name  -> [ LSK-2 ] [ RSK-4  ] [  MENU  ] [PREV PAGE] [   G  ] [  O   ] [  W   ] [  .   ] [  6   ]  Row 1  */
-                   "70167",  "70175",    "70183",  "70192",    "70211", "70219", "70227", "70202", "70197", // Populate Array Row 2
+                   "70167",  "70175",    "70183",  "70191",    "70211", "70219", "70227", "70202", "70198", // Populate Array Row 2
 
     /*   Switch-> [ SW03  ] [ SW11   ] [  SW19  ] [  SW27   ] [ SW35 ] [ SW43 ] [ SW51 ] [ SW59 ] [ SW67 ]
     ROW3 Name  -> [ LSK-3 ] [ RSK-5  ] [  LEGS  ] [NEXT PAGE] [   H  ] [  P   ] [  X   ] [  0   ] [  1   ]  Row 2  */
-                   "70168",  "70176",   "70184"    "70192",    "70212", "70220", "70228", "70203", "70193", // Populate Array Row 3
+                   "70168",  "70176",   "70184",    "70192",   "70212", "70220", "70228", "70203", "70193", // Populate Array Row 3
 
     /*   Switch-> [ SW04  ] [ SW12   ] [  SW20  ] [  SW28   ] [ SW36 ] [ SW44 ] [ SW52 ] [ SW60 ] [ SW68 ]
     ROW4 Name  -> [ LSK-4 ] [ RSK-6  ] [DEP ARR ] [    A    ] [   I  ] [  Q   ] [  Y   ] [ +/-  ] [  2   ]  Row 3  */
-                   "70169",  "70177",   "70181",   "70205",    "70213", "70221", "70229", "70204", "70194", // Populate Array Row 4
+                   "70169",  "70177",   "70185",   "70205",    "70213", "70221", "70229", "70204", "70194", // Populate Array Row 4
 
     /*   Switch-> [ SW05  ] [ SW13   ] [  SW21  ] [  SW29   ] [ SW37 ] [ SW45 ] [ SW53 ] [ SW61 ] [ SW69 ]
     ROW5 Name  -> [ LSK-5 ] [INIT REF] [  HOLD  ] [    B    ] [  J   ] [  R   ] [  Z   ] [  7   ] [  3   ]  Row 4  */
@@ -284,38 +284,36 @@ String PMDG_RIGHT[] = {
                       |         |          |           |         |        |        |        |        |
          Switch-> [ SW01  ] [ SW09   ] [  SW17  ] [  SW25   ] [ SW33 ] [ SW41 ] [ SW49 ] [ SW57 ] [ SW65 ]
     ROW1 Name  -> [ LSK-1 ] [ RSK-3  ] [   DES  ] [   FIX   ] [   F  ] [  N   ] [  V   ] [ CLR  ] [   5  ]  Row 0  */
-                   "70166",  "70174",   "70181",   "70190",    "70210", "70218", "70226", "70234", "70197", // Populate Array Row 1
+                   "70238",  "70246",   "70254",   "70262",    "70282", "70290", "70298", "70306", "70269", // Populate Array Row 1
 
     /*   Switch-> [ SW02  ] [ SW10   ] [  SW18  ] [  SW26   ] [ SW34 ] [ SW42 ] [ SW50 ] [ SW58 ] [ SW66 ]
     ROW2 Name  -> [ LSK-2 ] [ RSK-4  ] [  MENU  ] [PREV PAGE] [   G  ] [  O   ] [  W   ] [  .   ] [  6   ]  Row 1  */
-                   "70167",  "70175",    "70183",  "70192",    "70211", "70219", "70227", "70202", "70197", // Populate Array Row 2
+                   "70239",  "70247",    "70255",  "70263",    "70283", "70291", "70299", "70274", "70270", // Populate Array Row 2
 
     /*   Switch-> [ SW03  ] [ SW11   ] [  SW19  ] [  SW27   ] [ SW35 ] [ SW43 ] [ SW51 ] [ SW59 ] [ SW67 ]
     ROW3 Name  -> [ LSK-3 ] [ RSK-5  ] [  LEGS  ] [NEXT PAGE] [   H  ] [  P   ] [  X   ] [  0   ] [  1   ]  Row 2  */
-                   "70168",  "70176",   "70184"    "70192",    "70212", "70220", "70228", "70203", "70193", // Populate Array Row 3
+                   "70240",  "70248",   "70256",    "70264",    "70284", "70292", "70300", "70275", "70265", // Populate Array Row 3
 
     /*   Switch-> [ SW04  ] [ SW12   ] [  SW20  ] [  SW28   ] [ SW36 ] [ SW44 ] [ SW52 ] [ SW60 ] [ SW68 ]
     ROW4 Name  -> [ LSK-4 ] [ RSK-6  ] [DEP ARR ] [    A    ] [   I  ] [  Q   ] [  Y   ] [ +/-  ] [  2   ]  Row 3  */
-                   "70169",  "70177",   "70181",   "70205",    "70213", "70221", "70229", "70204", "70194", // Populate Array Row 4
+                   "70241",  "70249",   "70257",   "70277",    "70285", "70293", "70301", "70276", "70266", // Populate Array Row 4
 
     /*   Switch-> [ SW05  ] [ SW13   ] [  SW21  ] [  SW29   ] [ SW37 ] [ SW45 ] [ SW53 ] [ SW61 ] [ SW69 ]
     ROW5 Name  -> [ LSK-5 ] [INIT REF] [  HOLD  ] [    B    ] [  J   ] [  R   ] [  Z   ] [  7   ] [  3   ]  Row 4  */
-                   "70170",  "70178",   "70186",   "70206",    "70214", "70222", "70230", "70199", "70195", // Populate Array Row 5
+                   "70242",  "70250",   "70258",   "70278",    "70286", "70294", "70302", "70271", "70267", // Populate Array Row 5
 
     /*   Switch-> [ SW06  ] [ SW14   ] [  SW22  ] [  SW30   ] [ SW38 ] [ SW46 ] [ SW54 ] [ SW62 ] [ **** ]
     ROW6 Name  -> [ LSK-6 ] [  RTE   ] [  PROG  ] [    C    ] [  K   ] [  S   ] [  SP  ] [  8   ] [ **** ]  Row 5  */
-                   "70171",  "70178",   "70187",   "70207",    "70215", "70223", "70231", "70200",  "222",  // Populate Array Row 6
+                   "70243",  "70251",   "70259",   "70279",    "70287", "70295", "70303", "70272",  "222",  // Populate Array Row 6
 
     /*   Switch-> [ SW07  ] [ SW15   ] [  SW23  ] [  SW31   ] [ SW39 ] [ SW47 ] [ SW55 ] [ SW63 ] [ **** ]
     ROW7 Name  -> [ RSK-1 ] [  CLB   ] [  EXEC  ] [    D    ] [  L   ] [  T   ] [ DEL  ] [  9   ] [ **** ]  Row 6  */
-                   "70172",  "70180",   "70188",   "70208",    "70216", "70224", "70232", "70201",  "222",  // Populate Array Row 7
+                   "70244",  "70252",   "70260",   "70280",    "70288", "70296", "70304", "70273",  "222",  // Populate Array Row 7
 
     /*   Switch-> [ SW08  ] [ SW16   ] [  SW24  ] [  SW32   ] [ SW40 ] [ SW48 ] [ SW56 ] [ SW64 ] [ **** ]
     ROW8 Name  -> [ RSK-2 ] [  CRZ   ] [N1 LIMIT] [    E    ] [  M   ] [  U   ] [  /   ] [  4   ] [ **** ]  Row 7  */
-                   "70173",  "70181",   "70189",   "70209",    "70217", "70225", "70233", "70196",  "222"   // Populate Array Row 8
+                   "70245",  "70253",   "70261",   "70281",    "70289", "70297", "70305", "70274",  "222"   // Populate Array Row 8
 };
-
-
 
 
 // Now that the row pins, column pins, number fo rows and number of columns have been defined, create the array
@@ -346,16 +344,16 @@ const int LED_CDU_OFST = 17;
 
 //-------- [Keypad Dimmer Pin Assignment] -------- [Keypad Dimmer Pin Assignment]------- [Keypad Dimmer Pin Assignment]-------//
 
-    // Teensy Backlight Programming Pin Name:   PB6
-    // Teensy Backlight Socket Pin Number:       39
+// Teensy Backlight Programming Pin Name:   PB6
+// Teensy Backlight Socket Pin Number:       39
 const int BACK_LIGHT_PWM = 26;
 
 //-------- [Encoder Pin Assignment] -------- [Encoder Pin Assignment]------- [Encoder Pin Assignment]-------//
 
-    // Assign Constant names and Teensy Pin Numbers for the EC11E18244A5 Rotary Encoder used to dim the pushbutton LEDs
-    // There are 3 pins on the one side of the encoder with names:  ROTA, GND, ROTB
-    // Teensy Rotary Encoder Programming Pin Name:    ROTA
-    // Teensy Rotary Encoder Socket Pin Number:       14
+// Assign Constant names and Teensy Pin Numbers for the EC11E18244A5 Rotary Encoder used to dim the pushbutton LEDs
+// There are 3 pins on the one side of the encoder with names:  ROTA, GND, ROTB
+// Teensy Rotary Encoder Programming Pin Name:    ROTA
+// Teensy Rotary Encoder Socket Pin Number:       14
 const int EN_ROTB_Pin = 11;  // Analog input pin that the potentiometer is attached to
 
 // Teensy Rotary Encoder Programming Pin Name:    ROTB
@@ -371,20 +369,20 @@ const int EN_SW_Pin = 10;
 
 //-------- [DIP Switch Pin Assignment] -------- [DIP Switch Pin Assignment]------- [DIP Switch Pin Assignment]-------//
 
-    // Teensy Code DIP Code Select Switch #1  Pin Name:     PF2
-    // Teensy Code DIP Code Switch #1 Socket  Pin Number:   40
+// Teensy Code DIP Code Select Switch #1  Pin Name:     F2
+// Teensy Code DIP Code Switch #1 Socket  Pin Number:   40
 const int CODE_SELECT_SW_1 = 40;
 
-// Teensy Code DIP Code Select Switch #1  Pin Name:     PF4
-// Teensy Code DIP Code Switch #2 Socket  Pin Number    42
-const int CODE_SELECT_SW_2 = 42;
-
-// Teensy Code DIP Code Select Switch #1  Pin Name:     PF3
+// Teensy Code DIP Code Select Switch #1  Pin Name:     F3
 // Teensy Code DIP Code Switch #2 Socket  Pin Number    41
-const int CODE_SELECT_SW_3 = 41;
+const int CODE_SELECT_SW_2 = 41;
+
+// Teensy Code DIP Code Select Switch #1  Pin Name:     F4
+// Teensy Code DIP Code Switch #2 Socket  Pin Number    42
+const int CODE_SELECT_SW_3 = 42;
 
 
-// Teensy Code DIP Code Select Switch #1  Pin Name:     PA7
+// Teensy Code DIP Code Select Switch #1  Pin Name:     A7
 // Teensy Code DIP Code Switch #2 Socket  Pin Number    45
 const int CODE_SELECT_SW_4 = 45;
 
@@ -445,8 +443,8 @@ void setup()
     pinMode(LED_CDU_OFST, OUTPUT);
 
     // Set the 5 LEDs to a known state (OFF)
-    digitalWrite(LED_CDU_MSG, OFF);
-    digitalWrite(LED_CDU_EXEC, ON); // THIS GOES THROUGH A TRANSITOR TO DRIVE 2 LED SO THE ON / OFF IS REVERSED
+    digitalWrite(LED_CDU_MSG,  OFF);
+    digitalWrite(LED_CDU_EXEC, OFF);
     digitalWrite(LED_CDU_CALL, OFF);
     digitalWrite(LED_CDU_FAIL, OFF);
     digitalWrite(LED_CDU_OFST, OFF);
@@ -472,6 +470,7 @@ void setup()
     pinMode(CODE_SELECT_SW_1, INPUT_PULLUP);
     pinMode(CODE_SELECT_SW_2, INPUT_PULLUP);
     pinMode(CODE_SELECT_SW_3, INPUT_PULLUP);
+    pinMode(CODE_SELECT_SW_4, INPUT_PULLUP);
 
     // Pins used for the Rotary Encoder pins
     pinMode(EN_ROTA_Pin, INPUT_PULLUP);
@@ -551,19 +550,19 @@ void loop() {
 
             DIP_SW_1
                 ON  = AeroSoft FMC
-                OFF = 
+                OFF = N/A
 
             DIP_SW_2
-                ON  = PMDG FMC - Pilot (Left)
-                OFF 
+                ON  = Debug Mode - Outputs all information for all configurations on serial monitor
+                OFF = N/A
 
             DIP_SW_3
-                ON  = Debug Mode - Outputs all information for all configurations on serial monitor
-                OFF =
+                ON  = PMDG FMC - Pilot (Left)
+                OFF = N/A
 
             DIP_SW_4
                 ON  = PMDG FMC - CoPilot (Right)
-                OFF
+                OFF = N/A
     */
     DIP_SW_1 = digitalRead(CODE_SELECT_SW_1);
     DIP_SW_2 = digitalRead(CODE_SELECT_SW_2);
@@ -581,43 +580,43 @@ void loop() {
         keypadClick();
 
         if (DIP_SW_1 == 0) // AeroSoft value only for .lau program running on FSX
-        {
-            key = key - 1;  // The KeyName and Aerosoft arrays start at "0"
-            Serial.println(AeroSoft[key]);
-        }
 
-        if (DIP_SW_2 == 0) // Debug - Print values from all arrays
         {
-            key = key - 1;  // The KeyName and Aerosoft arrays start at "0"
+            if (key < 0) key = 0;  // don't let the number go below 0 or it will hang up hte program
+
+            key = key - 1;  // The KeyName arrays start at "0"
             Serial.print("FMC Key Name:            ");
             Serial.println(KeyName[key]);
 
-            key = key + 1;
-            Serial.print("Keypad Array Number:   ");
-            Serial.println(key);
-
-            key = key - 1;  // The KeyName and Aerosoft arrays start at "0"
-            Serial.print("AeroSoft Key Value:       ");
+            Serial.print("AeroSoft Key Value:      ");
             Serial.println(AeroSoft[key]);
 
-            key = key - 1;
-            Serial.print("PMDG Left Value:         ");
+            Serial.print("PMDG Left Value:        ");
             Serial.println(PMDG_LEFT[key]);
 
-            Serial.println("");
+            Serial.print("PMDG Right Value:      ");
+            Serial.println(PMDG_RIGHT[key]);
+
+            Serial.println("");  // Put a new line between blocks of text
         }
 
+        if (DIP_SW_2 == 0) // Debug - Print values from all arrays
+        
+        {
+            key = key - 1;  // The KeyName and Aerosoft arrays start at "0"
+            Serial.println(AeroSoft[key]);
+        }
+        
+        
         if (DIP_SW_3 == 0)
         {
-            key = key - 1;
-            Serial.print("PMDG Left Value:         ");
-            Serial.println(PMDG_LEFT[key]);
+           key = key - 1;
+           Serial.println(PMDG_LEFT[key]);
         }
 
         if (DIP_SW_4 == 0)
         {
             key = key - 1;
-            Serial.print("PMDG Right Value:         ");
             Serial.println(PMDG_RIGHT[key]);
         }
     }
@@ -900,11 +899,11 @@ void ledsOff()
 {
     ledState = 0;
 
-    digitalWrite(LED_CDU_MSG, 1);
-    digitalWrite(LED_CDU_EXEC, 0);        // EXEC LED via transistor
-    digitalWrite(LED_CDU_CALL, 1);
-    digitalWrite(LED_CDU_FAIL, 1);
-    digitalWrite(LED_CDU_OFST, 1);
+    digitalWrite(LED_CDU_MSG, OFF);
+    digitalWrite(LED_CDU_EXEC, OFF);
+    digitalWrite(LED_CDU_CALL, OFF);
+    digitalWrite(LED_CDU_FAIL, OFF);
+    digitalWrite(LED_CDU_OFST, OFF);
 }
 
 //----- [ledsBlink()] ------- [ledsBlink()] ------- [ledsBlink()] ------- [ledsBlink()] -----//
