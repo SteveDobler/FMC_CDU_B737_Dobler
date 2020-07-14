@@ -202,6 +202,7 @@ String KeyName[] = {
 };
 
 
+
 String AeroSoft[] = {
 
     /*               COL1      COL2       COL3       COL4       COL5     COL6     COL7     COL8     COL9
@@ -276,6 +277,45 @@ String PMDG_LEFT[] = {
     ROW8 Name  -> [ RSK-2 ] [  CRZ   ] [N1 LIMIT] [    E    ] [  M   ] [  U   ] [  /   ] [  4   ] [ **** ]  Row 7  */
                    "70173",  "70181",   "70189",   "70209",    "70217", "70225", "70233", "70196",  "222"   // Populate Array Row 8
 };
+
+
+String PMDG_RIGHT[] = {
+
+    /*               COL1      COL2       COL3       COL4       COL5     COL6     COL7     COL8     COL9
+                      |         |          |           |         |        |        |        |        |
+         Switch-> [ SW01  ] [ SW09   ] [  SW17  ] [  SW25   ] [ SW33 ] [ SW41 ] [ SW49 ] [ SW57 ] [ SW65 ]
+    ROW1 Name  -> [ LSK-1 ] [ RSK-3  ] [   DES  ] [   FIX   ] [   F  ] [  N   ] [  V   ] [ CLR  ] [   5  ]  Row 0  */
+                   "70166",  "70174",   "70181",   "70190",    "70210", "70218", "70226", "70234", "70197", // Populate Array Row 1
+
+    /*   Switch-> [ SW02  ] [ SW10   ] [  SW18  ] [  SW26   ] [ SW34 ] [ SW42 ] [ SW50 ] [ SW58 ] [ SW66 ]
+    ROW2 Name  -> [ LSK-2 ] [ RSK-4  ] [  MENU  ] [PREV PAGE] [   G  ] [  O   ] [  W   ] [  .   ] [  6   ]  Row 1  */
+                   "70167",  "70175",    "70183",  "70192",    "70211", "70219", "70227", "70202", "70197", // Populate Array Row 2
+
+    /*   Switch-> [ SW03  ] [ SW11   ] [  SW19  ] [  SW27   ] [ SW35 ] [ SW43 ] [ SW51 ] [ SW59 ] [ SW67 ]
+    ROW3 Name  -> [ LSK-3 ] [ RSK-5  ] [  LEGS  ] [NEXT PAGE] [   H  ] [  P   ] [  X   ] [  0   ] [  1   ]  Row 2  */
+                   "70168",  "70176",   "70184"    "70192",    "70212", "70220", "70228", "70203", "70193", // Populate Array Row 3
+
+    /*   Switch-> [ SW04  ] [ SW12   ] [  SW20  ] [  SW28   ] [ SW36 ] [ SW44 ] [ SW52 ] [ SW60 ] [ SW68 ]
+    ROW4 Name  -> [ LSK-4 ] [ RSK-6  ] [DEP ARR ] [    A    ] [   I  ] [  Q   ] [  Y   ] [ +/-  ] [  2   ]  Row 3  */
+                   "70169",  "70177",   "70181",   "70205",    "70213", "70221", "70229", "70204", "70194", // Populate Array Row 4
+
+    /*   Switch-> [ SW05  ] [ SW13   ] [  SW21  ] [  SW29   ] [ SW37 ] [ SW45 ] [ SW53 ] [ SW61 ] [ SW69 ]
+    ROW5 Name  -> [ LSK-5 ] [INIT REF] [  HOLD  ] [    B    ] [  J   ] [  R   ] [  Z   ] [  7   ] [  3   ]  Row 4  */
+                   "70170",  "70178",   "70186",   "70206",    "70214", "70222", "70230", "70199", "70195", // Populate Array Row 5
+
+    /*   Switch-> [ SW06  ] [ SW14   ] [  SW22  ] [  SW30   ] [ SW38 ] [ SW46 ] [ SW54 ] [ SW62 ] [ **** ]
+    ROW6 Name  -> [ LSK-6 ] [  RTE   ] [  PROG  ] [    C    ] [  K   ] [  S   ] [  SP  ] [  8   ] [ **** ]  Row 5  */
+                   "70171",  "70178",   "70187",   "70207",    "70215", "70223", "70231", "70200",  "222",  // Populate Array Row 6
+
+    /*   Switch-> [ SW07  ] [ SW15   ] [  SW23  ] [  SW31   ] [ SW39 ] [ SW47 ] [ SW55 ] [ SW63 ] [ **** ]
+    ROW7 Name  -> [ RSK-1 ] [  CLB   ] [  EXEC  ] [    D    ] [  L   ] [  T   ] [ DEL  ] [  9   ] [ **** ]  Row 6  */
+                   "70172",  "70180",   "70188",   "70208",    "70216", "70224", "70232", "70201",  "222",  // Populate Array Row 7
+
+    /*   Switch-> [ SW08  ] [ SW16   ] [  SW24  ] [  SW32   ] [ SW40 ] [ SW48 ] [ SW56 ] [ SW64 ] [ **** ]
+    ROW8 Name  -> [ RSK-2 ] [  CRZ   ] [N1 LIMIT] [    E    ] [  M   ] [  U   ] [  /   ] [  4   ] [ **** ]  Row 7  */
+                   "70173",  "70181",   "70189",   "70209",    "70217", "70225", "70233", "70196",  "222"   // Populate Array Row 8
+};
+
 
 
 
