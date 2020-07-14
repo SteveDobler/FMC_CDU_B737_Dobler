@@ -1,5 +1,5 @@
 /*
-  Name:       Teensy_FMC_R11.ino
+  Name:       FMC_CDU_B737_Dobler_.ino
   Created:    4/26/20
   Author:     Steven Dobler
 */
@@ -202,7 +202,6 @@ String KeyName[] = {
 };
 
 
-
 String AeroSoft[] = {
 
     /*               COL1      COL2       COL3       COL4       COL5     COL6     COL7     COL8     COL9
@@ -385,6 +384,11 @@ const int CODE_SELECT_SW_2 = 42;
 const int CODE_SELECT_SW_3 = 41;
 
 
+// Teensy Code DIP Code Select Switch #1  Pin Name:     PA7
+// Teensy Code DIP Code Switch #2 Socket  Pin Number    45
+const int CODE_SELECT_SW_4 = 45;
+
+
 // Teensy LCD Power Output Button to LCD Pin Name:      B1
 // Teensy LCD Power Output Button Socket  Pin Number:   21
 const int LCD_Power = 21;
@@ -420,10 +424,10 @@ int encoderPreviousStateCLK;
 String encdir = "";
 
 // There are 4 DIP switches used to define various functions
-int DIP_SW_1;     // KeyCap Name 
-int DIP_SW_2;     // Keypad Number    
-int DIP_SW_3;     // Aerosoft FSUIPC Value
-int DIP_SW_4;     // Select FMC Pilot or Copilot
+int DIP_SW_1;     // Aerosoft FSUIPC Value 
+int DIP_SW_2;     // PMDG Left (Pilot)    
+int DIP_SW_3;     // Debug - all codes, key names, array numbers, etc.
+int DIP_SW_4;     // PMDG Right (Copilot) 
 
 
 //----- [setup] ------- [setup] ------- [setup] ------- [setup] ------- [setup] ------- [setup]-----//
@@ -547,20 +551,24 @@ void loop() {
 
             DIP_SW_1
                 ON  = AeroSoft FMC
-                OFF = Debug Mode - Outputs all information for all configurations on serial monitor
+                OFF = 
 
             DIP_SW_2
-                ON  = PMDG FMC - Pilot
-                OFF = PMDG FMC - CoPilot
+                ON  = PMDG FMC - Pilot (Left)
+                OFF 
 
             DIP_SW_3
-                ON  = ProSIM FMC - Pilot
-                OFF = ProSIM FMC - Copilot
+                ON  = Debug Mode - Outputs all information for all configurations on serial monitor
+                OFF =
 
+            DIP_SW_4
+                ON  = PMDG FMC - CoPilot (Right)
+                OFF
     */
     DIP_SW_1 = digitalRead(CODE_SELECT_SW_1);
     DIP_SW_2 = digitalRead(CODE_SELECT_SW_2);
     DIP_SW_3 = digitalRead(CODE_SELECT_SW_3);
+    DIP_SW_4 = digitalRead(CODE_SELECT_SW_4);
 
     // Check the keypad for button pressed
 
@@ -601,7 +609,16 @@ void loop() {
 
         if (DIP_SW_3 == 0)
         {
+            key = key - 1;
+            Serial.print("PMDG Left Value:         ");
+            Serial.println(PMDG_LEFT[key]);
+        }
 
+        if (DIP_SW_4 == 0)
+        {
+            key = key - 1;
+            Serial.print("PMDG Right Value:         ");
+            Serial.println(PMDG_RIGHT[key]);
         }
     }
 
