@@ -387,26 +387,31 @@ const int CODE_SELECT_SW_3 = 42;
 const int CODE_SELECT_SW_4 = 45;
 
 
+
+// LCD Display Controls
+
 // Teensy LCD Power Output Button to LCD Pin Name:      B1
-// Teensy LCD Power Output Button Socket  Pin Number:   21
-const int LCD_Power = 21;
+// Teensy LCD Power Output Button Socket  Pin Number:   7
+const int LCD_Power = 7;
 
 // Teensy LCD Menu Output Button to LCD Pin Name:       E0
-// Teensy LCD Menu Output Button Socket  Pin Number:    8
-const int LCD_Menu = 8;
+// Teensy LCD Menu Output Button Socket  Pin Number:    9
+const int LCD_Menu = 9;
 
 // Teensy LCD Plus Output Button to LCD Pin Name:       E1
-// Teensy LCD Plus Output Button Socket  Pin Number:    9
-const int LCD_Plus = 9;
+// Teensy LCD Plus Output Button Socket  Pin Number:    25
+const int LCD_Plus = 25;
 
 // Teensy LCD Minus Output Button to LCD Pin Name:      B5
-// Teensy LCD Minus Output Button Socket  Pin Number:   25
-const int LCD_Minus = 25;
+// Teensy LCD Minus Output Button Socket  Pin Number:   21
+const int LCD_Minus = 21;
 
 // Teensy LCD S/Auto Output Button to LCD Pin Name:     D7
-// Teensy LCD S/Auto Output Button Socket  Pin Number:  7
-const int LCD_S_AUTO = 7;
+// Teensy LCD S/Auto Output Button Socket  Pin Number:  8
+const int LCD_S_AUTO = 8;
 
+
+// BUZZER Pin
 // Teensy Piezo Buzzer for Keypad "click" Pin Name:     F6
 // Teensy Piezo Buzzer for Keypad "click" Pin Number:   44
 const int BUZZER = 44;
@@ -549,11 +554,11 @@ void loop() {
     /*
 
             DIP_SW_1
-                ON  = AeroSoft FMC
+                ON  = Debug Mode - Outputs all information for all configurations on serial monitor
                 OFF = N/A
 
             DIP_SW_2
-                ON  = Debug Mode - Outputs all information for all configurations on serial monitor
+                ON  = AeroSoft FMC (Pilot Only)
                 OFF = N/A
 
             DIP_SW_3
@@ -572,6 +577,15 @@ void loop() {
     // Check the keypad for button pressed
 
     byte key = kpd.getKey();
+
+    if (fmcState == LOW) // Check to see if we are in LCD control mode
+        {
+            if (key == 57) // 57 is the key matrix number for the EXEC button on the FMC
+            {
+                lcdPowerButton();  // Used the EXEC key to call the function that turns off & on the LCD
+            }
+    }
+
 
     if (key != NO_KEY)
     {
@@ -647,11 +661,11 @@ void loop() {
 
   // Check for rotary encoder
 
-    if (fmcState == HIGH)
+    if (fmcState == HIGH) // In FMC mode and uses encoder to control LED dimming
     {
         checkEncoder();
     }
-    else
+    else // Means the rotary encoder has been held down and it's now in LCD programmeing mode
     {
         lcdControl();
     }
@@ -993,6 +1007,7 @@ void lcdControl()
 
         // If the inputDT state is different than the inputCLK state then 
         // the encoder is rotating counterclockwise
+
         if (digitalRead(EN_ROTB_Pin) != encoderCurrentStateCLK) {
             lcdPlusButton();
             lcdTimer.restart(); // resets the blinking LCDs so the FMC doesn't timeout and go back to FMC mode
