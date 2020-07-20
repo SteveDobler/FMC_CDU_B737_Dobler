@@ -693,8 +693,8 @@ void loop() {
             if (fmcState == LOW)
             {
                 lcdMenuButton();
-                Serial.println("");  // Insert blank line before next print statement
-                Serial.println("Encoder Button Single Tap");
+                //Serial.println("");  // Insert blank line before next print statement
+                //Serial.println("Encoder Button Single Tap");
                 lcdTimer.restart(); // resets the blinking LCDs so the FMC doesn't timeout and go back to FMC mode
             }
             break;
@@ -705,8 +705,8 @@ void loop() {
         case (doubleTap):
         {
             lcdSAutoButton();
-            Serial.println("");  // Insert blank line before next print statement
-            Serial.println("Encoder Button Double tap");
+            //Serial.println("");  // Insert blank line before next print statement
+            //Serial.println("Encoder Button Double tap");
             lcdTimer.restart(); // resets the blinking LCDs so the FMC doesn't timeout and go back to FMC mode
             break;
         } // end case (doubleTap)
@@ -715,15 +715,15 @@ void loop() {
 
         case (hold):
         {
-            Serial.println("");  // Insert blank line before next print statement
-            Serial.println("Encoder Button Held Down");
+            //Serial.println("");  // Insert blank line before next print statement
+            //Serial.println("Encoder Button Held Down");
             fmcState = LOW;
             keypadClick();
             lcdMenuButton();
             ledFlag = 1;
-            Serial.println("    - Make the LEDs FLASH");
+            //Serial.println("    - Make the LEDs FLASH");
             lcdTimer.start();
-            Serial.println("    - LCD Mode Timer out Timer Started");
+            //Serial.println("    - LCD Mode Timer out Timer Started");
             break;
         } // end case (hold)
 
@@ -893,11 +893,12 @@ void checkEncoder()
 
         }
         // This is for debug purposes to see value from the rotary encoder to control the backlight LED brigtness
-        Serial.println("");  // Insert blank line before next print statement
+       /* Serial.println("");  // Insert blank line before next print statement
         Serial.print("Direction: ");
         Serial.print(encdir);
         Serial.print(" -- Value: ");
         Serial.println(brightness);
+        */
 
         // Write to the pin that controls the backlight LEDs in each pushbutton
         analogWrite(BACK_LIGHT_PWM, brightness);
@@ -942,8 +943,8 @@ void ledBlink()
 
 void lcdModeTimeOut()
 {
-    Serial.println("");  // Insert blank line before next print statement
-    Serial.println("LCD Mode Timed Out");
+    //Serial.println("");  // Insert blank line before next print statement
+    //Serial.println("LCD Mode Timed Out");
     keypadClick();
     ledFlag = 0;
     ledsOff();
@@ -967,7 +968,7 @@ void lcdPowerButton()           // Turns ON / OFF the 5" LCD Panel
 void lcdMenuButton()            // Displays LCD Menu on the 5" LCD Panel
 {
     digitalWrite(LCD_Menu, 1);
-    Serial.println("Menu Button Pressed");
+    //Serial.println("Menu Button Pressed");
     delay(100);
     digitalWrite(LCD_Menu, 0);
 }
