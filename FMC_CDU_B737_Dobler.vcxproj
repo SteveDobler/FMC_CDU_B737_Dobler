@@ -109,9 +109,6 @@
   <ItemGroup>
     <ClInclude Include="__vm\.FMC_CDU_B737_Dobler.vsarduino.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="B737_FMC_Overview.txt" />
-  </ItemGroup>
   <PropertyGroup>
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
