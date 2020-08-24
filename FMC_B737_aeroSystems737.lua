@@ -119,7 +119,6 @@
 ---- Comm Port set up and recording of Comm Port ---------------------------
 ----------------------------------------------------------------------------
 	
-
 	-- Try to open the file "B737_FMC_Port_Number.txt" in read mode
 			file = io.open(port_file, "r") 
 	
@@ -169,7 +168,7 @@
             ipc.sleep(2000)
 		
 		-- If it was unable to open the port, it will ask you to enter the number of the port and hit Enter
-            port_number = ipc.ask('\n'..'\n'..'\n'..'\n'..'\n'..'\n'..'\n'..'\n'.." Enter the Arduino Com Port for Your B737 FMC Hardware")
+            port_number = ipc.ask('\n'.." Enter the Arduino Com Port for Your B737 FMC Hardware")
         
 		-- Opens the file in write mode and writes the port number you just entered ino "B737_FMC_Port_Number.txt" file 
 			file = io.open(port_file, "w")
@@ -187,7 +186,7 @@
             ipc.exit()
         
 		else
-        ipc.display("Arduino Com Port "..port_number.." Open",5)
+        ipc.display("Arduino Com Port "..port_number.." Open",3)
                                 
      end
 end 
@@ -198,9 +197,8 @@ end
 
 	--[[ 
 		Below are the functions used in this script.  When data comes in 
-		from the from the B737 FMC hardware it gets sent to this 
-		function.  When it finds one of the strings in "" it does that
-		ipc.control.
+		from the from the B737 FMC hardware it gets sent to this function.
+		When it finds one of the strings in "" it does that ipc.control.
 	--]]
 
 ----------------------------------------------------------------------------
@@ -214,8 +212,8 @@ function Arduino_Data(B737_FMC_Com_Port, datastring, length)
                 
 end  -- function end
 
---This script is to read the AeroSoft CDU MGS LED and display it on the screen
 
+--This script is to read the AeroSoft CDU MGS LED and display it on the screen
 
 ----------------------------------------------------------------------------
 ---- CDU_MSG_LED() Function ------------------------------------------------
@@ -227,35 +225,78 @@ end  -- function end
 		the LED is ON.  If the value is hex 0x0000 it means that the LED
 		if OFF.
 		
-		If the value is ON, it write a less than "<" symbol, an "M" and "\r" 
-		which is a return or enter character to the B737FMC Arduino program
+		If the value is ON, it write a less than "<" symbol, and an "M" and
+		then "\r" which is a return or enter character to the B737FMC
+		Arduino program
+
+		If the value is OFF, it write a less than ">" symbol, and an "M" and
+		then "\r" which is a return or enter character to the B737FMC
+		Arduino program
 	--]]
 
 function CDU_MSG_LED(offset, value)
 			serial_wait = 1000
-			MSG_LED = ipc.readUW(0x7378) -- Read the value at 0x0000
+			-- Read the value at 0x7378 which is the MSG LED state
+			MSG_LED = ipc.readUW(0x7378)
 
-		if MSG_LED == 0x0004 -- Value indicating the LED is ON
+		if MSG_LED == 0x0004 -- 0x0004 is the HEX value indicating the MSG LED is ON
 			then
+			-- Writing a <M tells the FMC to turn on the MSG LED
                 com.write(B737_FMC_Com_Port, "<M\r") 
                 serial_wait = 1000
-			end 
+			end -- End off MSG_LED is ON if statement
 
--- if the HEX value from Aerosoft is 0x0000 it inidates the LED is OFF
-
-
-if MSG_LED == 0x0000 then
-                com.write(B737_FMC_Com_Port, "<O\r")  -- Currently this test turns the Arduino EXEC LED OFF
-               serial_wait = 1000
-end -- End of if MSG_LED OFF
-
+		if MSG_LED == 0x0000 -- 0x0000 is the HEX value indicating the MSG LED is OFF
+			then 
+			-- Writing a >M tells the FMC to turn on the MSG LED
+				com.write(B737_FMC_Com_Port, ">M\r")  
+				serial_wait = 1000
+			end -- End off MSG_LED is OFF if statement
 
 end -- End of CDU_MSG_LED function
 
 
+----------------------------------------------------------------------------
+---- CDU_EXEC_LED() Function ------------------------------------------------
+----------------------------------------------------------------------------
+
+	--[[ 
+		The EXEC LED on the AeroAvionics737 software is located at FSUIPC
+		hex address 0x7378.  If this value is hex 0x0002 it means that
+		the LED is ON.  If the value is hex 0x0000 it means that the LED
+		if OFF.
+		
+		If the value is ON, it write a less than "<" symbol, and an "E" and
+		then "\r" which is a return or enter character to the B737FMC
+		Arduino program
+		
+		If the value is ON, it write a less than ">" symbol, and an "E" and
+		then "\r" which is a return or enter character to the B737FMC
+		Arduino program
+	--]]
+
+function CDU_MSG_LED(offset, value)
+			serial_wait = 1000
+			-- Read the value at 0x7378 which is the MSG LED state
+			EXEC_LED = ipc.readUW(0x7378)
+
+		if EXEC_LED == 0x0002 -- 0x0004 is the HEX value indicating the MSG LED is ON
+			then
+			-- Writing a <M tells the FMC to turn on the MSG LED
+                com.write(B737_FMC_Com_Port, "<E\r") 
+                serial_wait = 1000
+			end -- End off EXEC_LED is ON if statement
+
+		if EXEC_LED == 0x0000 -- 0x0000 is the HEX value indicating the MSG LED is OFF
+			then 
+			-- Writing a >M tells the FMC to turn on the MSG LED
+				com.write(B737_FMC_Com_Port, ">E\r")  
+				serial_wait = 1000
+			end -- End off EXEC_LED is OFF if statement
+
+end -- End of CDU_MSG_LED function
 
 ---- End of Functions section -----------------------
-
 
 ----------------------------------------------------------------------------
 ---- Events ----------------------------------------------------------------

@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "Visual Micro",
+      "intelliSenseMode": "windows-msvc-x86",
+      "includePath": [
+        "${projectRoot}..\\FMC_CDU_B737_Dobler",
+        "${projectRoot}..\\libraries\\Keypad\\src",
+        "${projectRoot}..\\libraries\\Countimer-master",
+        "${projectRoot}..\\libraries\\NoDelay-master\\src",
+        "${projectRoot}..\\libraries\\ButtonEvents-master\\src",
+        "${projectRoot}..\\..\\..\\..\\..\\Program Files (x86)\\Arduino\\hardware\\teensy\\avr\\cores\\teensy",
+        "${projectRoot}..\\..\\..\\..\\..\\Program Files (x86)\\Arduino\\hardware\\teensy\\avr\\cores\\teensy\\utils",
+        "${projectRoot}..\\..\\..\\..\\..\\Program Files (x86)\\Arduino\\hardware\\teensy\\avr\\cores\\teensy\\avr",
+        "${projectRoot}..\\..\\..\\..\\..\\Program Files (x86)\\Arduino\\hardware\\teensy"
+      ],
+      "defines": [
+        "__HARDWARE_at90usb1286__",
+        "__HARDWARE_AT90USB1286__",
+        "__HARDWARE_AT90usb1286__",
+        "TEENSYDUINO=148",
+        "ARDUINO_ARCH_AVR",
+        "ARDUINO=10809",
+        "F_CPU=16000000L",
+        "USB_SERIAL",
+        "LAYOUT_US_ENGLISH",
+        "__cplusplus=201103L",
+        "_VMICRO_INTELLISENSE"
+      ]
+    }
+  ]
+}

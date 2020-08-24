@@ -17,6 +17,7 @@
   <ItemGroup>
     <None Include="FMC_CDU_B737_Dobler.ino" />
     <None Include="FMC_B737_aeroSystems737.lua" />
+    <None Include="Z:\Flight Simulator\PMDG_FMC.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.FMC_CDU_B737_Dobler.vsarduino.h">

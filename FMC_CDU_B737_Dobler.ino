@@ -5,12 +5,12 @@
 */
 
 
-/* Overview
+    /* Overview
     This is a program for a B737 FMC (Flight Management Computer) / CDU (Control Display Unit).  The
     processor used in this design is a Teensy++ 2.0 due to the Arduino code compatibility and the number
     of I/O pins needed for this design.
 
-    There a several features that this design has including:
+    There a several unique features that this design has including:
         - Circuity board designed to work with the Hispapanel B737 FMC bezel and buttons
         - Designed for the 5" LCD ZJ050NA-08C
         - Supports to Drive boards
@@ -30,7 +30,30 @@
         - All components silkscreen labeled with values and polarity
         - Switches silkscreen with names of keys to help when populating plastic keycaps
         - On board +12V connector to be used with "Y" cable to power the LEDs and the LCD Drive Board
- */
+
+    • Document 4-Position DIP switch configurations
+    • No need to adjust space from PC board and bezel for push button clearance
+    • Benefits of the design
+    • Circuit board designed to work with the Hispapanel B737 FMC bezel
+    • Designed for the 5" LCD ZJ050NA-08C
+    • Supports two Drive boards KYV-N5-V1 and PCB8800099 both with onboard connectors – not VGA and Power Cables for neat package
+    • Support other planes (777 and A320) ?????
+    • Is the Hispapanel bezel for 777 use the same layout mechanically ??
+    • Support for multiple Flight Simulator Avionics Suites - selectable via on board DIP switches:  AeroSoft (only pilot supported), PMDG (selectable Pilot and Copilot), ProSim (selectable Pilot and Copilot), Diagnostics mode (Displays all values for each keys)
+    • Open source code with ability to modify values of keys for other / Future Avionics Suites. Visual studios with associated document and .lau files
+    • Works with .lua scripts
+    • Ability to control the 5" LCD settings using the Rotary Encoder
+    • All 69 pushbuttons are backlighted & brightness controlled by the Rotary Encoder.
+    • Each pushbutton on a single resistor so if something fails only 1 LED goes out
+    • Green / Red LED on back side of board for LCD power on / off
+    • Audible "click" for keypad keys
+    • All components silkscreen labeled with and polarities
+    • Switches silkscreen with names of keys to help when populating plastic keycaps
+    • On board +12V connector to be used with "Y" cable to power the LEDs and the LCD Drive Board
+    • Standoffs for LCD support
+    • No need to adjust space between bezel and PCB – 7mm standoffs provide correct spacing
+    • Visual Basic program to access all FMC features and values
+    */
  /*
  To be used with the design at this location: https://easyeda.com/SteveDobler/fmc_hispapanel
 
@@ -130,6 +153,7 @@
                                      5  N  S
                                      V  D  T
  */
+
 
  /*
    This view shows the schematic signal names for each pin on the Teensy++ 2.0 Module.  N/C = No Connection
@@ -456,6 +480,7 @@ String PMDG_LEFT[] = {
     ROW8 Name  -> [ RSK-2 ] [  CRZ   ] [N1 LIMIT] [    E    ] [  M   ] [  U   ] [  /   ] [  4   ] [ **** ]  Row 7  */
                    "70173",  "70181",   "70189",   "70209",    "70217", "70225", "70233", "70196",  "222"   // Populate Array Row 8
 };
+
 
 
 String PMDG_RIGHT[] = {
