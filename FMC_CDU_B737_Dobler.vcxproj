@@ -88,10 +88,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\FMC_CDU_B737_Dobler;$(ProjectDir)..\libraries\Keypad\src;$(ProjectDir)..\libraries\Countimer-master;$(ProjectDir)..\libraries\NoDelay-master\src;$(ProjectDir)..\libraries\ButtonEvents-master\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy\utils;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\FMC_CDU_B737_Dobler;$(ProjectDir)..\libraries\Keypad\src;$(ProjectDir)..\libraries\Countimer-master;$(ProjectDir)..\libraries\NoDelay-master\src;$(ProjectDir)..\libraries\ButtonEvents-master\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\Bounce2;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy\utils;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy\avr;$(ProjectDir)..\..\..\..\STEVED~1\AppData\Local\Temp\VMBuilds\B737_F~1.0\TEENSY~1\Release\pch;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\teensy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.FMC_CDU_B737_Dobler.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>__HARDWARE_at90usb1286__;__HARDWARE_AT90USB1286__;__HARDWARE_AT90usb1286__;TEENSYDUINO=148;ARDUINO_ARCH_AVR;ARDUINO=10809;F_CPU=16000000L;USB_SERIAL;LAYOUT_US_ENGLISH;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__HARDWARE_at90usb1286__;__HARDWARE_AT90USB1286__;__HARDWARE_AT90usb1286__;_VMDEBUG=1;TEENSYDUINO=148;ARDUINO_ARCH_AVR;ARDUINO=10809;F_CPU=16000000L;USB_SERIAL;LAYOUT_US_ENGLISH;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
